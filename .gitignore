@@ -14,8 +14,22 @@
 *.key
 *.pem
 
-# Mullvad VPN config (contains private key!)
+# VPN configs (contains private keys!)
 **/wireguard/*.conf
+mullvad*.conf
+*.ovpn
+
+# SSH keys
+**/.ssh/id_*
+**/.ssh/*_rsa*
+
+# GPG keys
+**/.gnupg/
+
+# Environment files
+.env
+.env.local
+**/.env*
 
 # Cache and temporary files
 *.cache
@@ -26,9 +40,18 @@ Thumbs.db
 # Editor files
 .vscode/
 .idea/
+*.code-workspace
 
 # Logs
 *.log
 
-# Node modules (if any)
+# Node modules
 node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# Machine-specific
+*.local
+*-local.*
