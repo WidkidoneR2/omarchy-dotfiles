@@ -1,0 +1,227 @@
+# ===============================
+# ~/.bashrc_aliases — Omarchy Tokyo Night Edition
+# Updated with Modern CLI Tools (exa, bat, fd, fzf)
+# ===============================
+
+# --- Navigation & File Management ---
+# Using exa (modern ls replacement with icons and git integration)
+alias ls='exa --icons'
+alias ll='exa -la --icons --git'
+alias la='exa -A --icons'
+alias l='exa --icons'
+alias lt='exa -la --icons --git --sort=modified'  # Sort by date, newest first
+alias lsize='exa -la --icons --sort=size'  # Sort by size
+alias tree='exa --tree --icons'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ~='cd ~'
+alias -- -='cd -'  # Go back to previous directory
+
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias mkdir='mkdir -pv'
+alias md='mkdir -pv'
+
+# --- Enhanced Directory Navigation ---
+alias desk='cd ~/Desktop'
+alias docs='cd ~/Documents'
+alias down='cd ~/Downloads'
+alias pics='cd ~/Pictures'
+alias vids='cd ~/Videos'
+alias conf='cd ~/.config'
+alias hyprconf='cd ~/.config/hypr'
+
+# --- Pacman & AUR ---
+alias pacu='sudo pacman -Syu'
+alias paci='sudo pacman -S'
+alias pacs='pacman -Ss'
+alias pacinfo='pacman -Qi'
+alias pacrem='sudo pacman -Rns'
+alias ins='yay -S'
+alias uns='yay -Rns'
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq) 2>/dev/null || echo "No orphaned packages"'
+alias unlock='sudo rm /var/lib/pacman/db.lck'
+alias mirror='sudo reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist'
+alias orphans='pacman -Qtd'  # Show orphaned packages
+alias pkglist='pacman -Qq | fzf --preview "pacman -Qil {}" --layout=reverse --bind "enter:execute(pacman -Qil {} | less)"'
+
+# --- System Info & Monitoring ---
+alias df='df -h'
+alias du='du -h'
+alias duh='du -h --max-depth=1 | sort -h'  # Disk usage of current dir
+alias free='free -mt'
+alias psa='ps auxf'
+alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'  # Search processes
+alias mem='ps auxf | sort -nr -k 4 | head -10'  # Top 10 memory eaters
+alias cpu='ps auxf | sort -nr -k 3 | head -10'  # Top 10 CPU eaters
+alias ff='fastfetch'
+alias weather='curl wttr.in'
+alias ports='netstat -tulanp'
+alias myip='curl ifconfig.me'
+alias localip='ip addr show | grep "inet " | grep -v 127.0.0.1'
+alias listening='lsof -P -i -n | grep LISTEN'
+
+# --- Git Shortcuts ---
+alias g='git'
+alias gst='git status'
+alias gs='git status -sb'  # Short status
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit -m'
+alias gca='git commit -am'
+alias gp='git push'
+alias gpl='git pull'
+alias gd='git diff'
+alias gl='git log --oneline --graph --decorate'
+alias glog='git log --oneline --decorate --graph --all'
+alias gco='git checkout'
+alias gb='git branch'
+alias gba='git branch -a'  # All branches
+alias gcl='git clone'
+alias gundo='git reset --soft HEAD~1'  # Undo last commit
+
+# --- FZF Shortcuts ---
+alias fzf-file='fzf'
+alias fzf-dir='fd --type d | fzf'
+alias fzf-history='history | fzf'
+alias fzf-git='git ls-files | fzf'
+alias fzffiles='fd --type f | fzf'
+alias fcd='cd $(fd --type d | fzf)'  # Fuzzy cd
+
+# --- LazyVim & Neovim ---
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias nv='nvim'
+alias svi='sudo nvim'
+alias lazyvim-update='nvim --headless "+Lazy! sync" +qa'
+alias lazyvim-clean='rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim'
+alias nvim-config='cd ~/.config/nvim && nvim .'
+
+# --- Yazi File Manager ---
+alias y='yazi'
+alias yy='yazi'
+alias fm='yazi'
+
+# --- Quick Config Editing ---
+alias nb='$EDITOR ~/.bashrc'
+alias na='$EDITOR ~/.bashrc_aliases'
+alias nhypr='$EDITOR ~/.config/hypr/hyprland.conf'
+alias nmonitors='$EDITOR ~/.config/hypr/monitors.conf'
+alias nbindings='$EDITOR ~/.config/hypr/bindings.conf'
+alias nautostart='$EDITOR ~/.config/hypr/autostart.conf'
+alias nlooknfeel='$EDITOR ~/.config/hypr/looknfeel.conf'
+alias nwindows='$EDITOR ~/.config/hypr/windows.conf'
+alias nwaybar='$EDITOR ~/.config/waybar/config.jsonc'
+alias nwaybar-style='$EDITOR ~/.config/waybar/style.css'
+alias nalacritty='$EDITOR ~/.config/alacritty/alacritty.toml'
+alias nyazi='$EDITOR ~/.config/yazi/yazi.toml'
+alias npacman='sudo $EDITOR /etc/pacman.conf'
+
+# --- Workspaces / Apps ---
+alias term='$TERMINAL --working-directory="$PWD"'
+alias brave='omarchy-launch-browser'
+alias brave-private='omarchy-launch-browser --private'
+alias files='uwsm-app -- nautilus --new-window'
+alias signal='omarchy-launch-or-focus signal "uwsm-app -- signal-desktop"'
+alias chatgpt='omarchy-launch-webapp "https://chatgpt.com"'
+alias claude='omarchy-launch-webapp "https://claude.ai"'
+alias grok='omarchy-launch-webapp "https://grok.com"'
+alias xcom='omarchy-launch-webapp "https://x.com/"'
+alias xpost='omarchy-launch-webapp "https://x.com/compose/post"'
+alias youtube='omarchy-launch-webapp "https://youtube.com"'
+alias gmail='omarchy-launch-webapp "https://gmail.com"'
+
+# --- Power Controls ---
+alias ssn='sudo shutdown now'
+alias sr='sudo reboot'
+alias logout='hyprctl dispatch exit'
+alias suspend='systemctl suspend'
+alias hibernate='systemctl hibernate'
+
+# --- Waybar Controls ---
+alias waybar-restart='killall waybar && setsid -f waybar'
+alias waybar-reload='killall waybar && setsid -f waybar'
+
+# --- Hyprland Controls ---
+alias hypr-reload='hyprctl reload'
+alias hypr-info='hyprctl clients'
+alias hypr-windows='hyprctl clients | grep "class:"'
+
+# --- Useful Shortcuts ---
+alias c='clear'
+alias h='history'
+alias hg='history | grep'  # Search history
+alias j='jobs -l'
+alias now='date +"%T"'
+alias nowdate='date +"%d-%m-%Y"'
+alias timestamp='date +"%Y%m%d_%H%M%S"'
+alias reload='source ~/.bashrc'
+alias path='echo -e ${PATH//:/\\n}'  # Pretty print PATH
+alias please='sudo $(history -p !!)'  # Run last command with sudo
+alias fucking='sudo'  # Alternative sudo 😄
+
+# --- File Operations ---
+alias chx='chmod +x'  # Make file executable
+alias extract='tar -xvf'  # Extract tar files
+alias targz='tar -czvf'  # Create tar.gz
+alias untar='tar -xvf'
+
+# --- Find & Search ---
+# Note: Using fd (modern find tool) instead of traditional find aliases
+alias findf='find . -type f -name'  # Find files by name (old method)
+alias findd='find . -type d -name'  # Find directories by name (old method)
+alias search='fd'  # Modern file search (fd tool)
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# --- Network ---
+alias pingg='ping google.com'
+alias wifilist='nmcli device wifi list'
+alias wificonnect='nmcli device wifi connect'
+
+# --- Quick System Maintenance ---
+alias update-all='yay -Syu && flatpak update -y'
+alias clean-all='yay -Sc && yay -Rns $(yay -Qtdq) 2>/dev/null'
+alias clean-cache='yay -Scc && sudo pacman -Scc'
+alias fix-keys='sudo pacman-key --init && sudo pacman-key --populate archlinux'
+
+# --- Modern CLI Tools ---
+# bat - Better cat with syntax highlighting
+alias cat='bat --paging=never'
+alias catp='bat'  # bat with paging for long files
+alias catt='bat --style=plain'  # Plain output, no line numbers
+
+# fzf - Fuzzy finder integrations
+alias vf='v $(fzf)'  # Fuzzy find and edit with nvim
+alias ef='nvim $(fzf)'  # Alternative fuzzy edit
+alias preview='fzf --preview "bat --color=always {}"'  # Preview files with bat
+
+# ripgrep - Fast search (install with: yay -S ripgrep)
+# alias rg='rg --smart-case'  # Uncomment when ripgrep is installed
+
+# --- LazyVim Cheat Sheet ---
+alias cheat='nvim ~/.config/nvim/lazyvim-cheatsheet.md'
+alias vimcheat='nvim ~/.config/nvim/lazyvim-cheatsheet.md'
+
+# --- Fun Stuff ---
+alias matrix='cmatrix -abs'  # Matrix effect (if installed)
+alias starwars='telnet towel.blinkenlights.nl'  # Star Wars in terminal
+
+# --- Grep Shortcuts ---
+alias find-alias='grep_alias() { cat ~/.bashrc_aliases | grep "$@"; }; grep_alias'
+alias find-bind='grep_bind() { cat ~/.config/hypr/bindings.conf | grep "$@"; }; grep_bind'
+alias find-workspace='grep_workspace() { cat ~/.config/hypr/windows.conf | grep workspace | grep "$@"; }; grep_workspace'
+alias my-processes='ps aux | grep $USER'
+
+# --- Mullvad VPN ---
+alias vpn-up='sudo wg-quick up mullvad'
+alias vpn-down='sudo wg-quick down mullvad'
+alias vpn-status='sudo wg show'
+alias vpn-ip='curl ifconfig.me'
+alias vpn-check='echo "VPN Status:" && sudo wg show && echo "" && echo "Your IP:" && curl -s ifconfig.me && echo ""'

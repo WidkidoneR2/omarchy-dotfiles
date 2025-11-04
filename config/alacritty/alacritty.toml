@@ -1,0 +1,50 @@
+general.import = [ "~/.config/omarchy/current/theme/alacritty.toml" ]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = { family = "CaskaydiaMono Nerd Font", style = "Regular" }
+bold = { family = "CaskaydiaMono Nerd Font", style = "Bold" }
+italic = { family = "CaskaydiaMono Nerd Font", style = "Italic" }
+size = 9
+
+[window]
+padding.x = 14
+padding.y = 14
+decorations = "None"
+
+[keyboard]
+bindings = [
+{ key = "Insert", mods = "Shift", action = "Paste" },
+{ key = "Insert", mods = "Control", action = "Copy" }
+]
+
+# Tokyo Night BRIGHT custom colors - override theme
+[colors.primary]
+background = '#1a1b26'
+foreground = '#c0caf5'
+
+[colors.normal]
+black = '#32344a'
+red = '#ff7a93'
+green = '#b9f27c'
+yellow = '#ffc777'
+blue = '#82aaff'
+magenta = '#bb9af7'
+cyan = '#7dcfff'
+white = '#a9b1d6'
+
+[colors.bright]
+black = '#565f89'
+red = '#ff9db4'
+green = '#c3e88d'
+yellow = '#ffd580'
+blue = '#7da6ff'
+magenta = '#c678dd'
+cyan = '#89ddff'
+white = '#cfc9c2'
+
+[colors.selection]
+background = '#7aa2f7'
+foreground = '#1a1b26'

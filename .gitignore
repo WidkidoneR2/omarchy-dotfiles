@@ -1,0 +1,34 @@
+# Backup files
+*.backup
+*.bak
+*~
+*.swp
+*.swo
+
+# Private/sensitive files
+**/private/
+**/*private*
+**/*secret*
+**/*password*
+**/*token*
+*.key
+*.pem
+
+# Mullvad VPN config (contains private key!)
+**/wireguard/*.conf
+
+# Cache and temporary files
+*.cache
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Node modules (if any)
+node_modules/
