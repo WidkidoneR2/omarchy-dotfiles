@@ -12,14 +12,12 @@ alias l='exa --icons'
 alias lt='exa -la --icons --git --sort=modified'  # Sort by date, newest first
 alias lsize='exa -la --icons --sort=size'  # Sort by size
 alias tree='exa --tree --icons'
-
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ~='cd ~'
 alias -- -='cd -'  # Go back to previous directory
-
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
@@ -65,24 +63,69 @@ alias myip='curl ifconfig.me'
 alias localip='ip addr show | grep "inet " | grep -v 127.0.0.1'
 alias listening='lsof -P -i -n | grep LISTEN'
 
-# --- Git Shortcuts ---
+# === GIT POWER ALIASES ===
+# LazyGit TUI
+alias lg='lazygit'
+
+# Quick status
 alias g='git'
+alias gs='git status'
+alias gss='git status -s'
 alias gst='git status'
-alias gs='git status -sb'  # Short status
+
+# Logs (enhanced!)
+alias gl='git log --oneline --graph --decorate -10'
+alias gla='git log --oneline --graph --decorate --all'
+alias gll='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+alias glog='git log --oneline --decorate --graph --all'
+
+# Add and commit
 alias ga='git add'
 alias gaa='git add --all'
 alias gc='git commit -m'
-alias gca='git commit -am'
+alias gca='git commit --amend'
+alias gcam='git commit -am'  # Add all and commit
+
+# Push and pull
 alias gp='git push'
 alias gpl='git pull'
-alias gd='git diff'
-alias gl='git log --oneline --graph --decorate'
-alias glog='git log --oneline --decorate --graph --all'
-alias gco='git checkout'
+alias gf='git fetch'
+
+# Branches
 alias gb='git branch'
-alias gba='git branch -a'  # All branches
+alias gba='git branch -a'
+alias gbd='git branch -d'
+alias gbD='git branch -D'  # Force delete
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gcm='git checkout main'
+
+# Diff and show
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gdp='git diff HEAD~1'  # Diff with previous commit
+alias gsh='git show'
+
+# Stash
+alias gst='git stash'
+alias gstp='git stash pop'
+alias gstl='git stash list'
+alias gstd='git stash drop'
+
+# Undo/Reset (use carefully!)
+alias gundo='git reset HEAD~1'
+alias gunstage='git reset HEAD'
+alias greset='git reset --hard'
+alias gclean='git clean -fd'
+
+# Clone
 alias gcl='git clone'
-alias gundo='git reset --soft HEAD~1'  # Undo last commit
+
+# Quick dotfiles management
+alias dotfiles='cd ~/dotfiles'
+alias dotsave='cd ~/dotfiles && git add . && git commit -m "Update configs" && git push && cd -'
+alias dotpull='cd ~/dotfiles && git pull && cd -'
+alias dotlog='cd ~/dotfiles && git log --oneline --graph --decorate -10'
 
 # --- FZF Shortcuts ---
 alias fzf-file='fzf'
@@ -172,7 +215,6 @@ alias targz='tar -czvf'  # Create tar.gz
 alias untar='tar -xvf'
 
 # --- Find & Search ---
-# Note: Using fd (modern find tool) instead of traditional find aliases
 alias findf='find . -type f -name'  # Find files by name (old method)
 alias findd='find . -type d -name'  # Find directories by name (old method)
 alias search='fd'  # Modern file search (fd tool)
@@ -201,9 +243,6 @@ alias catt='bat --style=plain'  # Plain output, no line numbers
 alias vf='v $(fzf)'  # Fuzzy find and edit with nvim
 alias ef='nvim $(fzf)'  # Alternative fuzzy edit
 alias preview='fzf --preview "bat --color=always {}"'  # Preview files with bat
-
-# ripgrep - Fast search (install with: yay -S ripgrep)
-# alias rg='rg --smart-case'  # Uncomment when ripgrep is installed
 
 # --- LazyVim Cheat Sheet ---
 alias cheat='nvim ~/.config/nvim/lazyvim-cheatsheet.md'

@@ -40,3 +40,25 @@ All notable changes to this dotfiles repository will be documented in this file.
 - Machine-specific override system
 - Additional keybindings
 - Theme variations
+
+## [1.6] - 2025-11-05
+
+### Added
+- Advanced workspace navigation keybinds (Page Up/Down, brackets, scratchpad)
+- Comprehensive Git aliases and shortcuts
+- Git configuration file with Tokyo Night colors
+- Quick dotfiles management commands (dotsave, dotpull)
+- Timeshift backup system with automatic daily/weekly snapshots
+- Tokyo Night GTK theme for Nautilus
+- Papirus Dark icon theme
+
+### Enhanced
+- Expanded Git section in bashrc_aliases with 30+ new shortcuts
+- LazyGit integration with shortcuts
+- Better log formatting (gll command)
+- Branch management shortcuts
+
+### System
+- Configured Timeshift for BTRFS snapshots
+- Set up automatic backup schedule (2 AM daily, Sunday weekly)
+- Installed and configured GTK theming for file manager

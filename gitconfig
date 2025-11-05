@@ -1,0 +1,72 @@
+[user]
+	name = Christian Williams
+	email = christianwilliams1001@tuta.com
+
+[core]
+	editor = nvim
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[alias]
+	# Status and info
+	s = status
+	ss = status -s
+	
+	# Logs
+	l = log --oneline --graph --decorate -10
+	la = log --oneline --graph --decorate --all
+	ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	
+	# Add and commit
+	a = add
+	aa = add .
+	c = commit -m
+	ca = commit --amend
+	
+	# Push and pull
+	p = push
+	pl = pull
+	f = fetch
+	
+	# Branches
+	b = branch
+	ba = branch -a
+	bd = branch -d
+	co = checkout
+	cob = checkout -b
+	
+	# Diff
+	d = diff
+	ds = diff --staged
+	
+	# Stash
+	st = stash
+	stp = stash pop
+	stl = stash list
+	
+	# Undo (be careful!)
+	undo = reset HEAD~1
+	unstage = reset HEAD --
+
+[color]
+	ui = auto
+
+[color "branch"]
+	current = yellow bold
+	local = green
+	remote = cyan
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
