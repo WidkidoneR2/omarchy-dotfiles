@@ -1,0 +1,93 @@
+gui:
+  # Tokyo Night Storm theme colors
+  theme:
+    activeBorderColor:
+      - '#7aa2f7'
+      - bold
+    inactiveBorderColor:
+      - '#414868'
+    optionsTextColor:
+      - '#7aa2f7'
+    selectedLineBgColor:
+      - '#283457'
+    selectedRangeBgColor:
+      - '#283457'
+    cherryPickedCommitBgColor:
+      - '#414868'
+    cherryPickedCommitFgColor:
+      - '#7aa2f7'
+    unstagedChangesColor:
+      - '#f7768e'
+    defaultFgColor:
+      - '#c0caf5'
+    searchingActiveBorderColor:
+      - '#ff9e64'
+  # UI settings
+  showFileTree: true
+  showRandomTip: false
+  showCommandLog: false
+  nerdFontsVersion: "3"
+  # Window border style
+  border: rounded
+  # Commit length
+  commitLength:
+    show: true
+git:
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+  # Auto-fetch
+  autoFetch: true
+  autoRefresh: true
+  # Commit settings
+  commit:
+    signOff: false
+# Keybindings
+keybinding:
+  universal:
+    quit: 'q'
+    quit-alt1: '<c-c>'
+    return: '<esc>'
+    quitWithoutChangingDirectory: 'Q'
+    togglePanel: '<tab>'
+    prevItem: '<up>'
+    nextItem: '<down>'
+    prevItem-alt: 'k'
+    nextItem-alt: 'j'
+    prevPage: ','
+    nextPage: '.'
+    scrollLeft: 'H'
+    scrollRight: 'L'
+    gotoTop: '<'
+    gotoBottom: '>'
+    refresh: 'R'
+    createRebaseOptionsMenu: 'm'
+    pushFiles: 'P'
+    pullFiles: 'p'
+  files:
+    commitChanges: 'c'
+    commitChangesWithoutHook: 'w'
+    amendLastCommit: 'A'
+    commitChangesWithEditor: 'C'
+    ignoreFile: 'i'
+    refreshFiles: 'r'
+    stashAllChanges: 's'
+    viewStashOptions: 'S'
+    toggleStagedAll: 'a'
+    viewResetOptions: 'D'
+    fetch: 'f'
+    toggleTreeView: '`'
+  branches:
+    createPullRequest: 'o'
+    viewPullRequestOptions: 'O'
+    checkoutBranchByName: 'c'
+    forceCheckoutBranch: 'F'
+    rebaseBranch: 'r'
+    mergeIntoCurrentBranch: 'M'
+    viewGitFlowOptions: 'i'
+    fastForward: 'f'
+    pushTag: 'P'
+    setUpstream: 'u'
+    fetchRemote: 'f'
+os:
+  editPreset: 'nvim'
