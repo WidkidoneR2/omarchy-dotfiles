@@ -10,13 +10,11 @@ window#waybar {
   color: #c0caf5;
 }
 
-/* Make the bar itself semi-transparent */
 #waybar {
   background: rgba(26, 27, 38, 0.3);
   border: none;
 }
 
-/* Workspaces - bright and visible */
 #workspaces button {
   padding: 0 8px;
   background: rgba(122, 162, 247, 0.2);
@@ -38,7 +36,6 @@ window#waybar {
   color: #82aaff;
 }
 
-/* Custom Omarchy button */
 #custom-omarchy {
   padding: 0 12px;
   background: rgba(187, 154, 247, 0.3);
@@ -52,7 +49,6 @@ window#waybar {
   background: rgba(187, 154, 247, 0.5);
 }
 
-/* Clock - center and prominent */
 #clock {
   padding: 0 16px;
   background: rgba(125, 207, 255, 0.3);
@@ -63,7 +59,6 @@ window#waybar {
   font-size: 14px;
 }
 
-/* CPU - bright green */
 #cpu {
   padding: 0 12px;
   background: rgba(158, 206, 106, 0.3);
@@ -72,7 +67,6 @@ window#waybar {
   margin: 2px 4px;
 }
 
-/* Network - cyan */
 #network {
   padding: 0 12px;
   background: rgba(125, 207, 255, 0.3);
@@ -86,7 +80,6 @@ window#waybar {
   color: #f7768e;
 }
 
-/* Battery - with color states */
 #battery {
   padding: 0 12px;
   background: rgba(158, 206, 106, 0.3);
@@ -110,7 +103,6 @@ window#waybar {
   color: #f7768e;
 }
 
-/* Bluetooth */
 #bluetooth {
   padding: 0 12px;
   background: rgba(122, 162, 247, 0.3);
@@ -124,7 +116,6 @@ window#waybar {
   background: rgba(86, 95, 137, 0.2);
 }
 
-/* Audio */
 #pulseaudio {
   padding: 0 12px;
   background: rgba(187, 154, 247, 0.3);
@@ -138,7 +129,6 @@ window#waybar {
   color: #f7768e;
 }
 
-/* System tray */
 #tray {
   padding: 0 8px;
   background: rgba(169, 177, 214, 0.2);
@@ -146,16 +136,6 @@ window#waybar {
   margin: 2px 4px;
 }
 
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: #f7768e;
-}
-
-/* Custom update indicator */
 #custom-update {
   padding: 0 12px;
   background: rgba(224, 175, 104, 0.3);
@@ -164,20 +144,10 @@ window#waybar {
   margin: 2px 4px;
 }
 
-/* Screen recording indicator */
 #custom-screenrecording-indicator {
   padding: 0 12px;
   background: rgba(247, 118, 142, 0.4);
   color: #f7768e;
-  border-radius: 8px;
-  margin: 2px 4px;
-}
-
-/* Tray expander */
-#custom-expand-icon {
-  padding: 0 8px;
-  background: rgba(169, 177, 214, 0.2);
-  color: #a9b1d6;
   border-radius: 8px;
   margin: 2px 4px;
 }
